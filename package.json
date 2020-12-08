@@ -1,0 +1,49 @@
+{
+  "name": "kafkamirror",
+  "version": "1.0.0",
+  "description": "Kafka monitoring tool",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack",
+    "dev": "webpack serve --config ./webpack.config.js --mode development & nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtobiwan/KafkaMirror.git"
+  },
+  "author": "Tobi-Wan Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rtobiwan/KafkaMirror/issues"
+  },
+  "homepage": "https://github.com/rtobiwan/KafkaMirror#readme",
+  "dependencies": {
+    "chartjs": "^0.3.24",
+    "express": "^4.17.1",
+    "kafkajs": "^1.15.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router": "^5.2.0",
+    "styled-components": "^5.2.1",
+    "webpack": "^5.10.0",
+    "ws": "^7.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.6",
+    "react-hot-loader": "^4.13.0",
+    "sass-loader": "^10.1.0",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
