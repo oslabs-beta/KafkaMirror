@@ -1,6 +1,14 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const kafkaInstance = require("./kafkaInstance");
+const kafkaInstance = require('./kafkaInstance');
+
+const io = require('socket.io-client');
+const ioClient = io.connect('http://localhost:3030');
+ioClient.on('log', (msg) => console.log(msg));
+
+// const io2 = require('socket.io-client');
+// const ioClient2 = io.connect('http://localhost:3030');
+// ioClient2.on('log', (msg) => console.log(`2!!!!!!!!!!!!!!!!! ${msg}`));
 
 // const io = require('socket.io-client');
 // const ioClient = io.connect('http://localhost:3030');
