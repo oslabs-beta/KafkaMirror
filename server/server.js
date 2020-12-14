@@ -1,10 +1,17 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const kafkaInstance = require('./kafkaInstance');
+const adminController = require("./controllers/adminController");
+// const kafkaInstance = require('./kafkaInstance');
 
-const io = require('socket.io-client');
-const ioClient = io.connect('http://localhost:3030');
-ioClient.on('log', (msg) => console.log(msg));
+app.use("/api/topicList", adminController.requestProducers, (req, res) => {
+  res.status(200).json(res.locals.payload);
+});
+
+//localhost:8080/api/topicList
+
+const io = require("socket.io-client");
+const ioClient = io.connect("http://localhost:3030");
+ioClient.on("log", (msg) => console.log(msg));
 
 // const io2 = require('socket.io-client');
 // const ioClient2 = io.connect('http://localhost:3030');
@@ -49,7 +56,7 @@ ioClient.on('log', (msg) => console.log(msg));
 
 // createConsumer(kafkaInstance, "transactions");
 
-app.listen(2000, () => console.log(`Server listening on 3000.`));
+app.listen(3000, () => console.log(`Server listening on 3000.`));
 
 // const path = require('path');
 
