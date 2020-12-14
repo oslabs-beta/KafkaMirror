@@ -1,0 +1,7 @@
+.grid-container {
+  margin: 30px 30px 30px 280px;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-auto-rows: minmax(250px, auto);
+  // grid-template-rows: 250px 300px 400px;
+}

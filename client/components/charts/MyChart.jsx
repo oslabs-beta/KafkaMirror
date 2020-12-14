@@ -95,7 +95,7 @@ class MyChart extends Component {
   }
   render() {
     return (<div>
-      <div className="chart" >
+      <div className="grid-item grid-item-1" >
         <canvas id="myChart"></canvas>
       </div>
     </div>
