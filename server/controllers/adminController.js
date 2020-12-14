@@ -3,16 +3,20 @@ const kafka = require("../kafkaInstance");
 const adminController = {};
 
 adminController.requestTopics = async (req, res, next) => {
-  console.log("request producers called");
   const admin = kafka.admin();
   await admin.connect();
-  console.log("admin connected");
+  const topicArr = await admin.listTopics();
+  res.locals.topicArr = topicArr;
+  await admin.disconnect();
+  next();
+};
 
-  const topicMetadata = await admin.listTopics();
-
-  console.log(JSON.stringify(topicMetadata, null, 2));
-  res.locals.payload = topicMetadata;
-
+adminController.getTopicMetadata = async (req, res, next) => {
+  const admin = kafka.admin();
+  await admin.connect();
+  topicArr = res.locals.topicArr;
+  const topicMetadataArr = await admin.fetchTopicMetadata({ topics: topicArr });
+  res.locals.topicMetadataArr = topicMetadataArr;
   await admin.disconnect();
   next();
 };
@@ -23,4 +27,5 @@ module.exports = adminController;
 // console.log(clusters);
 // console.log(JSON.stringify(await admin.describeGroups(['user']), null, 2));
 // const topicList = await admin.listTopics();
+// const topicMetadata = await admin.fetchTopicMetadata({ topics: ["user"] });
 // const topicMetadata = await admin.fetchTopicMetadata({ topics: ["user"] });
