@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
 import Sidebar from './components/Sidebar/Sidebar';
 import IconSidebar from './components/Sidebar/IconSidebar';
-// import Dashboard from './components/Dashboard.jsx';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Mirror from './pages/Mirror';
@@ -10,6 +9,7 @@ import Logs from './pages/Logs';
 import Streams from './pages/Streams';
 import Team from './pages/Team';
 import Support from './pages/Support';
+
 export default class App extends Component{
   constructor(props, context){
     super(props, context);
@@ -24,8 +24,6 @@ export default class App extends Component{
         <Router>
           <Sidebar />
           {/* <IconSidebar /> */}
-          {/* <Dashboard /> */}
-          {/* <NavLink to='/dashboard'>Dashboard</NavLink>  */}
         <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/dashboard' component={Dashboard} />
