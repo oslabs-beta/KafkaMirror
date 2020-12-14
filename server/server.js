@@ -1,10 +1,15 @@
-const express = require('express');
+const express = require("express");
 const app = express();
+
 // const kafkaInstance = require('./kafkaInstance');
 
-// Client WebSocket on Server Side
-// const io = require('socket.io-client');
-// const ioClient = io.connect('http://localhost:3030');
-// ioClient.on('log', (msg) => console.log(msg));
+const apiRouter = require("./routes/api");
+
+app.use("/api", apiRouter);
+
+const io = require("socket.io-client");
+const ioClient = io.connect("http://localhost:3030");
+ioClient.on("log", (msg) => console.log(msg));
+
 
 app.listen(3000, () => console.log(`Server listening on 3000.`));
