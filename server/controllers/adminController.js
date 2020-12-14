@@ -21,6 +21,21 @@ adminController.getTopicMetadata = async (req, res, next) => {
   next();
 };
 
+adminController.requestGroups = async (req, res, next) => {
+  const admin = kafka.admin();
+  await admin.connect();
+  //   const groupArr = await admin.listGroups();
+  //   const groupArr = await admin.describeGroups(["paella"]);
+  //   const groupArr = await admin.describeGroups(["transactions"]);
+  const groupArr = await admin.describeGroups(["ass"]);
+  //   const groupArr = await admin.describeGroups([
+  //     "randomtopicnamefortopicthatdoesntexist",
+  //   ]);
+  res.locals.groupArr = groupArr;
+  await admin.disconnect();
+  next();
+};
+
 module.exports = adminController;
 
 // const clusters = await admin.describeCluster();
