@@ -1,13 +1,11 @@
 const express = require("express");
 const app = express();
-const adminController = require("./controllers/adminController");
+
 // const kafkaInstance = require('./kafkaInstance');
 
-app.use("/api/topicList", adminController.requestProducers, (req, res) => {
-  res.status(200).json(res.locals.payload);
-});
+const apiRouter = require("./routes/api");
 
-//localhost:8080/api/topicList
+app.use("/api", apiRouter);
 
 const io = require("socket.io-client");
 const ioClient = io.connect("http://localhost:3030");

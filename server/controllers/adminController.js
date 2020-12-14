@@ -2,7 +2,7 @@ const kafka = require("../kafkaInstance");
 
 const adminController = {};
 
-adminController.requestProducers = async (req, res, next) => {
+adminController.requestTopics = async (req, res, next) => {
   console.log("request producers called");
   const admin = kafka.admin();
   await admin.connect();
