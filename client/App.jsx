@@ -25,7 +25,6 @@ export default class App extends Component{
           <Sidebar />
           {/* <IconSidebar /> */}
           {/* <Dashboard /> */}
-          {/* <NavLink to='/dashboard'>Dashboard</NavLink>  */}
         <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/dashboard' component={Dashboard} />
