@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-import { Switch, BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
-// import { Redirect, NavLink } from 'react-router-dom';
-import DashBoard from './components/pages/Dashboard.jsx'
-console.log(Switch)
-console.log(Route)
-console.log(NavLink)
-
+import { BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
+import Sidebar from './components/Sidebar/Sidebar';
+import IconSidebar from './components/Sidebar/IconSidebar';
+// import Dashboard from './components/Dashboard.jsx';
+import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
+import Mirror from './pages/Mirror';
+import Logs from './pages/Logs';
+import Streams from './pages/Streams';
+import Team from './pages/Team';
+import Support from './pages/Support';
 export default class App extends Component{
   constructor(props, context){
     super(props, context);
@@ -16,17 +20,23 @@ export default class App extends Component{
   }
   render(){
     return(
-      <div>
-        <h2>react is rendering inside #root div</h2>
+      <>
         <Router>
-          <NavLink to='/dashboard'>DashBoard</NavLink> 
+          <Sidebar />
+          {/* <IconSidebar /> */}
+          {/* <Dashboard /> */}
+          {/* <NavLink to='/dashboard'>Dashboard</NavLink>  */}
         <Switch>
-          <Route path='/dashboard'>
-            <DashBoard/>
-          </Route>
+            <Route path='/' exact component={Home} />
+            <Route path='/dashboard' component={Dashboard} />
+            <Route path='/mirror' component={Mirror} />
+            <Route path='/logs' component={Logs} />
+            <Route path='/streams' component={Streams} />
+            <Route path='/team' component={Team} />
+            <Route path='/support' component={Support} />
         </Switch>
         </Router>
-      </div>
+      </>
     )
   }
 }

@@ -1,0 +1,104 @@
+.sidebar {
+  background-color: rgba(54,73,152,1);
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.app-logo {
+  color: rgba(60,207,207,1);
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+}
+
+.sidebar-menu {
+  background-color: rgba(54,73,152,1);
+  width: 230px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;  
+  top: 65px;
+  left: -100%;
+  transition: 850ms;
+}
+
+.icon-sidebar {
+  background-color: rgba(54,73,152,1);
+  width: 60px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;  
+  top: 65px;
+  left: -8%;
+  transition: 850ms;
+  z-index: -5;
+}
+
+.sidebar-menu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+.icon-sidebar-menu {
+  background-color: rgba(54,73,152,1);
+  width: 80px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;  
+  top: 0;
+  transition: 850ms;
+}
+
+.sidebar-text {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  align-content: space-between;
+  padding: 25px 0px 8px 20px;
+  list-style: none;
+  height: 60px;
+}
+
+.sidebar-text a {
+  text-decoration: none;
+  color: rgba(20,29,68,1);
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0px 16px 0px;
+  border-radius: 4px;
+}
+
+.sidebar-text a:hover {
+  color: rgba(60,207,207,1);
+}
+
+.sidebar-menu-items {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.sidebar-toggle {
+  background-color: rgba(54,73,152,1);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.side-icon {
+  color: rgba(60,207,207,1);
+  margin-right: 16px;
+}
+
+.side-text {
+  margin-left: 16px;
+}

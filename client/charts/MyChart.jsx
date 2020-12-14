@@ -1,12 +1,10 @@
-import React from 'react';
-import { Component } from 'react';
-
+import React, { Component } from 'react';
 
 const io = require('socket.io-client');
 const ioClient = io.connect('http://localhost:3030');
 ioClient.on('log', (msg) => console.log(msg));
 
-class Dashboard extends Component {
+class MyChart extends Component {
   constructor(props) {
     super(props);
   }
@@ -106,7 +104,7 @@ class Dashboard extends Component {
   ;
 }
 
-export default Dashboard;
+export default MyChart;
 
 
 
