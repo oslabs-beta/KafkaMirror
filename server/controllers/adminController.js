@@ -1,4 +1,4 @@
-const kafka = require("../kafkaInstance");
+const kafka = require('../kafkaInstance');
 
 const adminController = {};
 
@@ -24,14 +24,21 @@ adminController.getTopicMetadata = async (req, res, next) => {
 adminController.requestGroups = async (req, res, next) => {
   const admin = kafka.admin();
   await admin.connect();
-  //   const groupArr = await admin.listGroups();
-  //   const groupArr = await admin.describeGroups(["paella"]);
-  //   const groupArr = await admin.describeGroups(["transactions"]);
-  const groupArr = await admin.describeGroups(["ass"]);
-  //   const groupArr = await admin.describeGroups([
-  //     "randomtopicnamefortopicthatdoesntexist",
-  //   ]);
+  const groupArr = await admin.listGroups();
+
   res.locals.groupArr = groupArr;
+  await admin.disconnect();
+  next();
+};
+
+adminController.describeGroups = async (req, res, next) => {
+  const groupList = res.locals.groupArr.groups.map((group) => group.groupId);
+  console.log(groupList);
+  const admin = kafka.admin();
+  await admin.connect();
+  const groupDetails = await admin.describeGroups(groupList);
+
+  res.locals.groupDetails = groupDetails;
   await admin.disconnect();
   next();
 };
