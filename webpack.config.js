@@ -3,8 +3,8 @@ const webpack = require('webpack');
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
 // const combineLoaders = require('webpack-combine-loaders');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HotModuleReplacementPlugin = require('hot-module-replacement');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HotModuleReplacementPlugin = require('hot-module-replacement');
 
 module.exports = {
   entry: './client/index.js',
@@ -60,9 +60,7 @@ module.exports = {
     modules: ['client', 'node_modules'],
     extensions: ['*', '.js', '.jsx', '.css', '.scss', '.mp4'],
   },
-  plugins: [new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, '/index.html'
- }), new webpack.HotModuleReplacementPlugin()],
+  plugins: [ new webpack.HotModuleReplacementPlugin()],
   devServer: {
     historyApiFallback: true,
     contentBase: path.resolve(__dirname, './dist'),

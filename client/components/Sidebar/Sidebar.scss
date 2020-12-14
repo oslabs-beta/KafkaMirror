@@ -1,5 +1,5 @@
 .sidebar {
-  background-color: rgba(54,73,152,1);
+  background-color: rgba(54,73,152,1); //my color: #060b26
   height: 80px;
   display: flex;
   justify-content: start;
@@ -14,7 +14,7 @@
 }
 
 .sidebar-menu {
-  background-color: rgba(54,73,152,1);
+  background-color: rgba(54,73,152,1); // #060b26
   width: 230px;
   height: 100vh;
   display: flex;
@@ -26,7 +26,7 @@
 }
 
 .icon-sidebar {
-  background-color: rgba(54,73,152,1);
+  background-color: rgba(54,73,152,1); //my color: #060b26
   width: 60px;
   height: 100vh;
   display: flex;
@@ -44,7 +44,7 @@
 }
 
 .icon-sidebar-menu {
-  background-color: rgba(54,73,152,1);
+  background-color: rgba(54,73,152,1); //#060b26
   width: 80px;
   height: 100vh;
   display: flex;
@@ -66,7 +66,7 @@
 
 .sidebar-text a {
   text-decoration: none;
-  color: rgba(20,29,68,1);
+  color: rgba(20,29,68,1); //#fff
   font-size: 18px;
   width: 95%;
   height: 100%;
