@@ -2,3 +2,4 @@
 /dist/bundle
 package-lock.json
 node_modules
+myapp.log
