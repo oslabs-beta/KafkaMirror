@@ -117,7 +117,8 @@ class MyChart extends Component {
     // }, 1000);
   }
   render() {
-    return (<div>
+    return (
+    <div className={this.props.className}>
       <div className="moch-chart" >
         <canvas id="myChart"></canvas>
       </div>
