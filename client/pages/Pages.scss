@@ -1,5 +1,5 @@
 // .grid-container {
-  
+
 // }
 // #display-newContact {
 //   border-radius: 18px;
@@ -19,9 +19,9 @@
   grid-gap: 20px;
   // justify-content: right;
   grid-template-areas:
-  "h  h  h  h  h  h  h  h  h  h  h  h
-   m1 m1 m1 m1 m2 m2 m2 m2 m3 m3 m3 m3
-   g1 g1 g1 g1 g1 g1 g2 g2 g2 g2 g2 g2"
+    'h  h  h  h  h  h  h  h  h  h  h  h'
+    'm1 m1 m1 m1 m2 m2 m2 m2 m3 m3 m3 m3'
+    'g1 g1 g1 g1 g1 g1 g2 g2 g2 g2 g2 g2';
 }
 
 .dashboardHeader {
@@ -104,5 +104,3 @@
 //   top: -10px;
 //   border-color: black;
 // }
-
-

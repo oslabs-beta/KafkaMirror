@@ -94,7 +94,7 @@ class GridItem2 extends Component {
     }, 50);
   }
   render() {
-    return (<div>
+    return (<div className={this.props.className}>
       <div className="moch-chart2" >
         <canvas id="myChart2"></canvas>
       </div>
