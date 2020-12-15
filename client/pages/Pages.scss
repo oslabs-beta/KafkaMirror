@@ -1,7 +1,108 @@
-.grid-container {
-  margin: 30px 30px 30px 280px;
+// .grid-container {
+  
+// }
+// #display-newContact {
+//   border-radius: 18px;
+//   box-shadow: 0 10px 20px;
+//   position: relative;
+//   margin: 20px;
+//   top: -10px;
+//   border-color: black;
+// }
+
+.dashboardContainer {
+  // margin: 30px 30px 30px 280px;
   display: grid;
-  grid-template-columns: repeat(3, 300px);
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 80px 200px 1fr;
   grid-auto-rows: minmax(250px, auto);
-  // grid-template-rows: 250px 300px 400px;
+  grid-gap: 20px;
+  // justify-content: right;
+  grid-template-areas:
+  "h  h  h  h  h  h  h  h  h  h  h  h
+   m1 m1 m1 m1 m2 m2 m2 m2 m3 m3 m3 m3
+   g1 g1 g1 g1 g1 g1 g2 g2 g2 g2 g2 g2"
 }
+
+.dashboardHeader {
+  grid-area: h;
+}
+
+.metric1 {
+  grid-area: m1;
+}
+
+.metric2 {
+  grid-area: m2;
+}
+
+.metric3 {
+  grid-area: m3;
+}
+
+.graph1 {
+  grid-area: g1;
+}
+
+.graph2 {
+  grid-area: g2;
+}
+
+// .moch-chart {
+//   grid-area: a;
+//   border-radius: 18px;
+//   box-shadow: 0 3px 20px;
+//   position: relative;
+//   margin: 20px;
+//   top: -10px;
+//   border-color: black;
+// }
+
+// .moch-chart2 {
+//   grid-area: b;
+//   border-radius: 18px;
+//   box-shadow: 0 3px 20px;
+//   position: relative;
+//   margin: 20px;
+//   top: -10px;
+//   border-color: black;
+// }
+
+// .moch-chart3 {
+//   grid-area: c;
+//   border-radius: 18px;
+//   box-shadow: 0 3px 20px;
+//   position: relative;
+//   margin: 20px;
+//   top: -10px;
+//   border-color: black;
+// }
+// .moch-chart4 {
+//   grid-area: d;
+//   border-radius: 18px;
+//   box-shadow: 0 3px 20px;
+//   position: relative;
+//   margin: 20px;
+//   top: -10px;
+//   border-color: black;
+// }
+// .moch-chart5 {
+//   grid-area: e;
+//   border-radius: 18px;
+//   box-shadow: 0 3px 20px;
+//   position: relative;
+//   margin: 20px;
+//   top: -10px;
+//   border-color: black;
+// }
+// .moch-chart6 {
+//   grid-area: f;
+//   border-radius: 18px;
+//   box-shadow: 0 3px 20px;
+//   position: relative;
+//   margin: 20px;
+//   top: -10px;
+//   border-color: black;
+// }
+
+

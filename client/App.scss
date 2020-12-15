@@ -10,7 +10,7 @@
 
 body {
   background-color: rgb(21, 6, 41); //#fff, tbd
-  color: rgb(91, 49, 158); //#fff, tbd
+  color: rgba(60,207,207,1); //#fff, tbd
 }
 
 //Placeholder. Put componenets scss here. tbd
@@ -20,6 +20,23 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+}
+
+div.appContainer {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'sidebar mainContainer';
+  height: 100vh;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color:#060b26; // #060b26
+}
+
+.mainContainer {
+  grid-area: mainContainer;
 }
 
 // .dashboard {
@@ -36,4 +53,23 @@ body {
 //   align-items: center;
 //   justify-content: center;
 //   font-size: 6rem;
+// }
+
+// .grid-container {
+//   margin: 30px 30px 30px 280px;
+//   display: grid;
+//   grid-template-columns: repeat(3, 3fr);
+//   grid-auto-rows: minmax(250px, auto);
+//   grid-gap: 20px;
+//   justify-content: right;
+// }
+
+// .moch-chart {
+//   grid-column-start: 1;
+//   grid-column-end: 2;
+// }
+
+// .moch-chart2 {
+//   grid-column-start: 2;
+//   grid-column-end: 4;
 // }
