@@ -32,8 +32,13 @@ body {
 
 .chart {
   display: flex;
-  margin: 50px 10px 10px 260px;
+  widows: 500px;
+  height: 400px;
+  margin-left:260px;
   align-items: center;
   justify-content: center;
-  font-size: 6rem;
+}
+#myChart{
+  width: 400px;
+  height: 600px;
 }
