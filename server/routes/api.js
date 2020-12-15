@@ -35,4 +35,8 @@ router.get(
   }
 );
 
+router.get('/describeCluster', adminController.describeCluster, (req, res) => {
+  res.status(200).json(res.locals.clusterDetails);
+});
+
 module.exports = router;
