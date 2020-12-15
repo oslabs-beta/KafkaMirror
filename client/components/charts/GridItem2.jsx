@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
+import { io } from 'socket.io-client';
+import interval from './chartConfig'
+// const io = require('socket.io-client');
 
-const io = require('socket.io-client');
-const ioClient = io.connect('http://localhost:3030');
-ioClient.on('log', (msg) => console.log(msg));
 
 class GridItem2 extends Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
+
+    let events=0
+    const socket= io('http://localhost:3030')
+    socket.on('log', (data)=>{
+      events++
+    })
+
     const ctx = document.getElementById('myChart2').getContext('2d');
     const liveChart = new Chart(ctx, {
       // The type of chart we want to create
@@ -56,6 +63,7 @@ class GridItem2 extends Component {
         dataset.data.push(data);
       });
       chart.update();
+      return
     }
     //============================================
 
@@ -68,6 +76,7 @@ class GridItem2 extends Component {
         dataset.data.shift();
       });
       chart.update();
+      return
     }
 
     function chartAnimate(chart, label, data) {
@@ -75,23 +84,28 @@ class GridItem2 extends Component {
       //======================
       removeData(chart);
       //----------------------
+      return
     }
 
     function randomizeCallout() {
-      let random = Math.floor(Math.random() * 300)
-      console.log(random)
+      // setTimeout(()=>{
+      //   randomizeCallout()
+      // },interval)
       let time = ''
       let d = new Date();
       time += d.getHours() + ' : ';
       time += d.getMinutes() + ' : ';
       time += d.getSeconds(); + ' : ';
       time += d.getMilliseconds()
-      chartAnimate(liveChart, time, random)
+      let val = events;
+      console.log('events: ',val)
+      events=0;
+      return chartAnimate(liveChart, time, val)
     }
-
+    // randomizeCallout()
     setInterval(() => {
       randomizeCallout()
-    }, 50);
+    }, interval);
   }
   render() {
     return (<div>
