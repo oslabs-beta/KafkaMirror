@@ -24,6 +24,8 @@ router.get('/groupList', adminController.requestGroups, (req, res) => {
   res.status(200).json(res.locals.groupArr);
 });
 
+//localhost:8080/api/describeGroups
+
 router.get(
   '/describeGroups',
   adminController.requestGroups,
