@@ -22,3 +22,8 @@ const data = {
   clientId: String,
 };
 ```
+
+in kafka mirror access the kafka instance
+using admin
+get list of producers
+send to client

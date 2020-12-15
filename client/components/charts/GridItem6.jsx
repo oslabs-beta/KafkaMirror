@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
-import { io } from 'socket.io-client';
-// const io = require('socket.io-client');
-// const ioClient = io.connect('http://localhost:3030');
-// ioClient.on('log', (msg) => console.log(msg));
 
+const io = require('socket.io-client');
+const ioClient = io.connect('http://localhost:3030');
+ioClient.on('log', (msg) => console.log(msg));
 
-
-
-class MyChart extends Component {
+class GridItem6 extends Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    let bytes =0
-    let events =0
-    const socket= io('http://localhost:3030')
-    socket.on('log', (data)=>{
-      bytes+=(JSON.parse(data).requestSize)
-      events++
-    })
-
-    const ctx = document.getElementById('myChart').getContext('2d');
+    const ctx = document.getElementById('myChart6').getContext('2d');
     const liveChart = new Chart(ctx, {
       // The type of chart we want to create
       type: 'bar',
@@ -67,7 +56,6 @@ class MyChart extends Component {
         dataset.data.push(data);
       });
       chart.update();
-      return
     }
     //============================================
 
@@ -80,46 +68,35 @@ class MyChart extends Component {
         dataset.data.shift();
       });
       chart.update();
-      return
     }
 
     function chartAnimate(chart, label, data) {
-      let copy=data
       addData(chart, label, data);
       //======================
       removeData(chart);
       //----------------------
-      return
     }
-    let interval=500
+
     function randomizeCallout() {
-      setTimeout(()=>{
-        randomizeCallout()
-      },interval)
-      // console.log('\n\nbytes: ',bytes)
-      // console.log('bytes after cleaned: ',bytes)
+      let random = Math.floor(Math.random() * 300)
+      console.log(random)
       let time = ''
       let d = new Date();
       time += d.getHours() + ' : ';
       time += d.getMinutes() + ' : ';
-      time += d.getSeconds();// + ' : ';
-      //time += d.getMilliseconds()
-      let val=bytes
-      console.log('val: ',bytes)
-      console.log('events: ',events)
-      events=0
-      bytes=0
-      chartAnimate(liveChart, time, val)
+      time += d.getSeconds(); + ' : ';
+      time += d.getMilliseconds()
+      chartAnimate(liveChart, time, random)
     }
-    randomizeCallout();
-    // setInterval(() => {
-    //   randomizeCallout()
-    // }, 1000);
+
+    setInterval(() => {
+      randomizeCallout()
+    }, 50);
   }
   render() {
     return (<div>
-      <div className="chart" >
-        <canvas id="myChart"></canvas>
+      <div className="moch-chart6" >
+        <canvas id="myChart6"></canvas>
       </div>
     </div>
     )
@@ -127,12 +104,4 @@ class MyChart extends Component {
   ;
 }
 
-export default MyChart;
-
-
-
-
-
-
-
-
+export default GridItem6;

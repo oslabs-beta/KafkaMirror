@@ -1,21 +1,20 @@
-.sidebar {
-  background-color: rgba(54,73,152,1); //my color: #060b26
-  height: 80px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
+.sidebarContainer {
+  background-color: #060b26; //my color: #060b26
+  padding-top: 30px;
+  // height: 80px;
+  // display: flex;
+  // justify-content: start;
+  // align-items: center;
 }
 
 .app-logo {
   color: rgba(60,207,207,1);
   margin-left: 2rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
   background: none;
 }
 
 .sidebar-menu {
-  background-color: rgba(54,73,152,1); // #060b26
-  width: 230px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -66,7 +65,7 @@
 
 .sidebar-text a {
   text-decoration: none;
-  color: rgba(20,29,68,1); //#fff
+  color: rgb(229, 231, 238); //#fff
   font-size: 18px;
   width: 95%;
   height: 100%;

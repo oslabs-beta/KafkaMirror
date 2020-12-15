@@ -1,47 +1,45 @@
-const { Kafka, logLevel } = require("kafkajs");
-const winston = require("winston");
+const { Kafka } = require('kafkajs');
 
-const toWinstonLogLevel = (level) => {
-  switch (level) {
-    case logLevel.ERROR:
-    case logLevel.NOTHING:
-      return "error";
-    case logLevel.WARN:
-      return "warn";
-    case logLevel.INFO:
-      return "info";
-    case logLevel.DEBUG:
-      return "debug";
-  }
-};
+// expects an array of broker addresses
+// const kafka = (brokers) => {
+//   // convert brokers into correct format
+//   brokers = brokers.map((broker) => {
+//     if (broker.includes('http')) return broker;
+//     if (broker.includes('localhost')) return broker;
+//     return `localhost:${brokers}`;
+//   });
 
-const WinstonLogCreator = (logLevel) => {
-  const logger = winston.createLogger({
-    level: toWinstonLogLevel(logLevel),
-    transports: [
-      new winston.transports.Console(),
-      new winston.transports.File({ filename: "myapp.log" }),
-    ],
+//   return new Kafka({
+//     // confirm clientId
+//     clientId: 'kafkamirror',
+//     brokers,
+//     // brokers: ["localhost:9092"],
+//   });
+// };
+
+const createInstance = (brokers = [9092]) => {
+  if (!Array.isArray(brokers)) brokers = [brokers];
+  // convert brokers into correct format
+  brokers = brokers.map((broker) => {
+    if (typeof broker === 'number') return `localhost:${broker}`;
+    return broker;
+    // if (broker.includes('http')) return broker;
+    // if (broker.includes('localhost')) return broker;
   });
 
-  return ({ namespace, level, label, log }) => {
-    const { message, ...extra } = log;
-    logger.log({
-      level: toWinstonLogLevel(level),
-      message,
-      extra,
-    });
-  };
+  return new Kafka({
+    // confirm clientId
+    clientId: 'kafkamirror',
+    brokers,
+    // brokers: ["localhost:9092", localhost:9093],
+  });
 };
 
-const kafka = new Kafka({
-  // confirm clientId
-  clientId: "kafkamirror",
-  brokers: ["localhost:9092"],
-  logLevel: logLevel.DEBUG,
-  logCreator: WinstonLogCreator,
-});
+// module.exports = new Kafka({
+//   // confirm clientId
+//   clientId: 'kafkamirror',
+//   // brokers,
+//   brokers: ['localhost:9092'],
+// });
 
-// console.log(kafka);
-
-module.exports = kafka;
+module.exports = createInstance;
