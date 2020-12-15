@@ -1,3 +1,6 @@
+const {
+  admin,
+} = require('../../../kafka-simulator/server/kafka/streams/kafkaInstance');
 const createInstance = require('../kafkaInstance');
 const kafka = createInstance(9092);
 console.log('kafka instance:', kafka);
@@ -41,6 +44,12 @@ adminController.describeGroups = async (req, res, next) => {
 
   res.locals.groupDetails = groupDetails;
   await admin.disconnect();
+  next();
+};
+
+adminController.describeCluster = async (req, res, next) => {
+  const clusterDetails = await admin.describeCluster();
+  res.locals.clusterDetails = clusterDetails;
   next();
 };
 
