@@ -14,12 +14,10 @@ const Sidebar = () => {
 
   return (
     <> 
-      <div className="sidebar">
+      <div className="sidebarContainer">
         <NavLink to="#" className="app-logo">
           <SiIcons.SiApachekafka onClick={sidebarToggle} />
         </NavLink>
-      </div> 
-      {/* Might have to switch around truthy and falsy */}
       <nav className={sidebar ? 'sidebar-menu' : 'sidebar-menu active'}>
         <ul className='sidebar-menu-items'>
           {SidebarItems.map((item, index) => {
@@ -34,6 +32,8 @@ const Sidebar = () => {
           })}
         </ul>
         </nav>
+      </div> 
+      {/* Might have to switch around truthy and falsy */}
     </>
   )
 }

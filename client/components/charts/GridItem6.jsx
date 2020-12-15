@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-// const io = require('socket.io-client');
-// const ioClient = io.connect('http://localhost:3030');
-// ioClient.on('log', (msg) => console.log(msg));
+const io = require('socket.io-client');
+const ioClient = io.connect('http://localhost:3030');
+ioClient.on('log', (msg) => console.log(msg));
 
-class MyChart extends Component {
+class GridItem6 extends Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    const ctx = document.getElementById('myChart').getContext('2d');
+    const ctx = document.getElementById('myChart6').getContext('2d');
     const liveChart = new Chart(ctx, {
       // The type of chart we want to create
       type: 'bar',
@@ -95,8 +95,8 @@ class MyChart extends Component {
   }
   render() {
     return (<div>
-      <div className="chart" >
-        <canvas id="myChart"></canvas>
+      <div className="moch-chart6" >
+        <canvas id="myChart6"></canvas>
       </div>
     </div>
     )
@@ -104,12 +104,4 @@ class MyChart extends Component {
   ;
 }
 
-export default MyChart;
-
-
-
-
-
-
-
-
+export default GridItem6;
