@@ -1,6 +1,6 @@
-const kafka = require('../kafkaInstance');
+const kafka = require("../kafkaInstance");
 // const kafka = createInstance(9092);
-console.log('kafka instance:', kafka);
+console.log("kafka instance:", kafka);
 const adminController = {};
 
 adminController.requestTopics = async (req, res, next) => {

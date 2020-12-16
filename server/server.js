@@ -6,7 +6,7 @@ const app = express();
 
 // Create websocket client
 const ioClient = io.connect("http://localhost:3030");
-ioClient.on("log", (msg) => console.log(msg));
+// ioClient.on("log", (msg) => console.log(JSON.parse(msg).requestSize));
 // ioClient.on('log', (log) => console.log(log));
 
 const apiRouter = require("./routes/api");
