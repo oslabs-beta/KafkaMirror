@@ -41,5 +41,6 @@ const createInstance = (brokers = [9092]) => {
 //   // brokers,
 //   brokers: ['localhost:9092'],
 // });
+const kafka = createInstance(9092);
 
-module.exports = createInstance;
+module.exports = kafka;
