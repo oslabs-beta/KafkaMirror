@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { io } from 'socket.io-client';
+import interval from './chartConfig'
 // const io = require('socket.io-client');
 // const ioClient = io.connect('http://localhost:3030');
 // ioClient.on('log', (msg) => console.log(msg));
-
-
 
 
 class MyChart extends Component {
@@ -13,11 +12,10 @@ class MyChart extends Component {
   }
   componentDidMount() {
     let bytes =0
-    let events =0
     const socket= io('http://localhost:3030')
     socket.on('log', (data)=>{
-      bytes+=(JSON.parse(data).requestSize)
-      events++
+      // bytes+=data
+      bytes+=JSON.parse(data).requestSize
     })
 
     const ctx = document.getElementById('myChart').getContext('2d');
@@ -91,11 +89,11 @@ class MyChart extends Component {
       //----------------------
       return
     }
-    let interval=500
+
     function randomizeCallout() {
-      setTimeout(()=>{
-        randomizeCallout()
-      },interval)
+      // setTimeout(()=>{
+      //   randomizeCallout()
+      // },interval)
       // console.log('\n\nbytes: ',bytes)
       // console.log('bytes after cleaned: ',bytes)
       let time = ''
@@ -105,16 +103,14 @@ class MyChart extends Component {
       time += d.getSeconds();// + ' : ';
       //time += d.getMilliseconds()
       let val=bytes
-      console.log('val: ',bytes)
-      console.log('events: ',events)
-      events=0
+      console.log('bytes: ',val)
       bytes=0
-      chartAnimate(liveChart, time, val)
+      return chartAnimate(liveChart, time, val)
     }
-    randomizeCallout();
-    // setInterval(() => {
-    //   randomizeCallout()
-    // }, 1000);
+    // randomizeCallout();
+    setInterval(() => {
+      randomizeCallout()
+    }, interval);
   }
   render() {
     return (
