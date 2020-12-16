@@ -1,6 +1,3 @@
-const {
-  admin,
-} = require('../../../kafka-simulator/server/kafka/streams/kafkaInstance');
 const kafka = require('../kafkaInstance');
 // const kafka = createInstance(9092);
 console.log('kafka instance:', kafka);
