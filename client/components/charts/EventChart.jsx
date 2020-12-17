@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { io } from "socket.io-client";
-import interval from "./chartConfig";
+import React, { Component } from 'react';
+import { io } from 'socket.io-client';
+import interval from './chartConfig';
 // const io = require('socket.io-client');
 
 class EventChart extends Component {
@@ -9,15 +9,17 @@ class EventChart extends Component {
   }
   componentDidMount() {
     let events = 0;
-    const socket = io("http://localhost:3030");
-    socket.on("log", (data) => {
-      events++;
+    const socket = io('http://localhost:3030');
+    socket.on('log', (data) => {
+      data = JSON.parse(data);
+      console.log('data recieved was', data);
+      events = data.length;
     });
 
-    const ctx = document.getElementById("myChart2").getContext("2d");
+    const ctx = document.getElementById('myChart2').getContext('2d');
     const liveChart = new Chart(ctx, {
       // The type of chart we want to create
-      type: "bar",
+      type: 'bar',
 
       // The data for our dataset
       data: {
@@ -27,9 +29,9 @@ class EventChart extends Component {
         datasets: [
           {
             lineTension: 0,
-            label: "live chart",
-            backgroundColor: "rgba(115, 115, 217, 1)",
-            borderColor: "rgb(255, 99, 132)",
+            label: 'live chart',
+            backgroundColor: 'rgba(115, 115, 217, 1)',
+            borderColor: 'rgb(255, 99, 132)',
             data: Array(100)
               .fill(0)
               .map((x) => 0),
@@ -41,7 +43,7 @@ class EventChart extends Component {
         animation: {
           tension: {
             duration: 100,
-            easing: "linear",
+            easing: 'linear',
             from: 1,
             to: 0,
             loop: true,
@@ -97,15 +99,15 @@ class EventChart extends Component {
       // setTimeout(()=>{
       //   randomizeCallout()
       // },interval)
-      let time = "";
+      let time = '';
       let d = new Date();
-      time += d.getHours() + " : ";
-      time += d.getMinutes() + " : ";
+      time += d.getHours() + ' : ';
+      time += d.getMinutes() + ' : ';
       time += d.getSeconds();
-      +" : ";
+      +' : ';
       time += d.getMilliseconds();
       let val = events;
-      console.log("events: ", val);
+      console.log('events: ', val);
       events = 0;
       return chartAnimate(liveChart, time, val);
     }

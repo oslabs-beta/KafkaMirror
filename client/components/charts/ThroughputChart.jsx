@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { io } from "socket.io-client";
-import interval from "./chartConfig";
+import React, { Component } from 'react';
+import { io } from 'socket.io-client';
+import interval from './chartConfig';
 // const io = require('socket.io-client');
 // const ioClient = io.connect('http://localhost:3030');
 // ioClient.on('log', (msg) => console.log(msg));
@@ -11,15 +11,19 @@ class Throughput extends Component {
   }
   componentDidMount() {
     let bytes = 0;
-    const socket = io("http://localhost:3030");
-    socket.on("log", (data) => {
-      bytes += JSON.parse(data).requestSize;
+    const socket = io('http://localhost:3030');
+    socket.on('log', (data) => {
+      // bytes += JSON.parse(data).requestSize;
+      data = JSON.parse(data);
+      bytes += data.reduce((acc, curr) => {
+        return acc + curr.requestSize;
+      }, 0);
     });
 
-    const ctx = document.getElementById("myChart").getContext("2d");
+    const ctx = document.getElementById('myChart').getContext('2d');
     const liveChart = new Chart(ctx, {
       // The type of chart we want to create
-      type: "bar",
+      type: 'bar',
 
       // The data for our dataset
       data: {
@@ -29,9 +33,9 @@ class Throughput extends Component {
         datasets: [
           {
             lineTension: 0,
-            label: "live chart",
-            backgroundColor: "rgba(115, 115, 217, 1)",
-            borderColor: "rgb(255, 99, 132)",
+            label: 'live chart',
+            backgroundColor: 'rgba(115, 115, 217, 1)',
+            borderColor: 'rgb(255, 99, 132)',
             data: Array(100)
               .fill(0)
               .map((x) => 0),
@@ -43,7 +47,7 @@ class Throughput extends Component {
         animation: {
           tension: {
             duration: 100,
-            easing: "linear",
+            easing: 'linear',
             from: 1,
             to: 0,
             loop: true,
@@ -102,14 +106,14 @@ class Throughput extends Component {
       // },interval)
       // console.log('\n\nbytes: ',bytes)
       // console.log('bytes after cleaned: ',bytes)
-      let time = "";
+      let time = '';
       let d = new Date();
-      time += d.getHours() + " : ";
-      time += d.getMinutes() + " : ";
+      time += d.getHours() + ' : ';
+      time += d.getMinutes() + ' : ';
       time += d.getSeconds(); // + ' : ';
       //time += d.getMilliseconds()
       let val = bytes;
-      console.log("bytes: ", val);
+      console.log('bytes: ', val);
       bytes = 0;
       return chartAnimate(liveChart, time, val);
     }
