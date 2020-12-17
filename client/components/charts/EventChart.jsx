@@ -12,7 +12,7 @@ class EventChart extends Component {
     const socket = io('http://localhost:3030');
     socket.on('log', (data) => {
       data = JSON.parse(data);
-      console.log('data recieved was', data);
+      // console.log('data recieved was', data);
       events = data.length;
     });
 
