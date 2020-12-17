@@ -6,7 +6,7 @@ import "./Sidebar.scss";
 
 
 const Sidebar = () => {
-  const [sidebar, setSidebar] = useState(false);
+  const [sidebar, setSidebar] = useState(true);
   
   const sidebarToggle = () => setSidebar(!sidebar);
 
@@ -25,21 +25,19 @@ const Sidebar = () => {
       </div>
       <div className="sidebar-icon-container">
         <ul className="sidebar-menu-icons" onClick={iconCloseSidebar}>
-          {/* <li className="sidebar-icons-list"> */}
           {SidebarItems.map((item, index) => {
             return (
               <li key={index} className={item.cName2}>
-                <Link to={item.path}>
+                <NavLink to={item.path}>
                   <span className="icon">{item.icon}</span>
-                </Link>
+                </NavLink>
               </li>
             )
           })}
-          {/* </li> */}
         </ul>
           </div>
         <nav className={sidebar ? 'sidebar-menu' : 'sidebar-menu active'}>
-        <ul className='sidebar-menu-items'>
+        <ul className='sidebar-menu-items' onClick={sidebarToggle}>
           {SidebarItems.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
