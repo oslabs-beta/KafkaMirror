@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import * as SiIcons from 'react-icons/si';
 import { NavLink } from 'react-router-dom';
 import { SidebarItems } from './SidebarItems';
-import "./Sidebar.scss"; 
-
+import './Sidebar.scss';
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
-  
+
   const sidebarToggle = () => setSidebar(!sidebar);
 
   const iconCloseSidebar = () => {
@@ -17,7 +16,7 @@ const Sidebar = () => {
   };
 
   return (
-    <> 
+    <>
       <div className="sidebarContainer">
         <NavLink to="#" className="app-logo">
           <SiIcons.SiApachekafka onClick={sidebarToggle} />
@@ -32,12 +31,12 @@ const Sidebar = () => {
                   <span className="icon">{item.icon}</span>
                 </NavLink>
               </li>
-            )
+            );
           })}
         </ul>
-          </div>
-        <nav className={sidebar ? 'sidebar-menu' : 'sidebar-menu active'}>
-        <ul className='sidebar-menu-items' onClick={sidebarToggle}>
+      </div>
+      <nav className={sidebar ? 'sidebar-menu active' : 'sidebar-menu '}>
+        <ul className="sidebar-menu-items" onClick={sidebarToggle}>
           {SidebarItems.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
@@ -45,12 +44,12 @@ const Sidebar = () => {
                   <span>{item.title}</span>
                 </NavLink>
               </li>
-            )
+            );
           })}
         </ul>
-        </nav>
+      </nav>
     </>
-  )
-}
+  );
+};
 
 export default Sidebar;

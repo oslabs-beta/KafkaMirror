@@ -20,6 +20,7 @@ class EventChart extends Component {
     const liveChart = new Chart(ctx, {
       // The type of chart we want to create
       type: 'bar',
+      // type: 'line',
 
       // The data for our dataset
       data: {
@@ -30,8 +31,10 @@ class EventChart extends Component {
           {
             lineTension: 0,
             label: 'live chart',
-            backgroundColor: 'rgba(115, 115, 217, 1)',
-            borderColor: 'rgb(255, 99, 132)',
+            // backgroundColor: 'rgba(115, 115, 217, 1)',
+            backgroundColor: '#09dfdf',
+            // borderColor: 'rgb(255, 99, 132)',
+            borderColor: '#09dfdf',
             data: Array(100)
               .fill(0)
               .map((x) => 0),
@@ -52,15 +55,32 @@ class EventChart extends Component {
         legend: {
           display: false,
         },
+        title: {
+          display: true,
+          text: 'Events/second',
+          fontColor: 'white',
+          fontSize: '18'
+        },
         scales: {
           yAxes: [
             {
               display: true,
               ticks: {
                 min: 0,
+                // callback: function(value, index, values) {
+                //   return value + ' events';
+                // }
+                fontColor: 'white'
               },
             },
           ],
+          xAxes: [
+            {
+              ticks: {
+                fontColor: 'white'
+              }
+            }
+          ]
         },
       },
     });
