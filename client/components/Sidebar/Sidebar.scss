@@ -1,5 +1,7 @@
+@import '../../styles/variables.scss';
+
 .sidebarContainer {
-  background-color: #060b26;
+  background-color: $secondaryBackground;
   height: 80px;
   width: 100%;
   position: fixed;
@@ -12,40 +14,44 @@
 .app-logo {
   margin-left: 1.29rem;
   padding-top: 10px;
-  color:  #f5f5f5;
+  color: #f5f5f5;
   font-size: 2.6rem;
   background: none;
   z-index: 6;
 }
 
-.app-logo:hover {
-  color: #1a83ff;
-}
+// .app-logo:hover {
+//   color: #1a83ff;
+// }
 
 .icon {
   margin-top: 3rem;
+  color: $primaryForeground;
 }
 
+.icon:hover {
+  color: darken($primaryForeground, 10%);
+}
 
 .sidebar-icon-container {
   display: flex;
   background-color: #060b26;
-  color: #f5f5f5;
+  color: $primaryForeground;
   width: 80px;
   height: 100vh;
   padding-right: 8px;
   padding-bottom: 100px;
-  justify-content: center; 
-  align-items: center;
+  justify-content: center;
+  // align-items: center;
   position: fixed;
   top: 0px;
   z-index: 5;
+  padding-top: 100px;
 }
 
-
 .sidebar-menu-icons {
- list-style: none;
- color: #f5f5f5;
+  list-style: none;
+  color: #f5f5f5;
 }
 
 .sidebar-menu {
@@ -54,13 +60,14 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   padding-bottom: 90px;
   position: fixed;
   top: 0px;
   left: -100%;
   transition: 850ms;
   z-index: 4;
+  padding-top: 100px;
 }
 
 .sidebar-menu.active {
@@ -92,11 +99,9 @@
   color: white;
 }
 
-
-
 .sidebar-text a {
   text-decoration: none;
-  color: #f5f5f5;
+  color: $primaryForeground;
   font-size: 18px;
   width: 95%;
   height: 100%;
@@ -107,15 +112,16 @@
 }
 
 .sidebar-text a:hover {
-  color: #1a83ff;;
+  // color: darken($primaryForeground, 10%);
+  color: white;
 }
 
-.icon:hover {
-  color: #1a83ff;
-}
+// .icon:hover {
+//   color: #1a83ff;
+// }
 
 .sidebar-menu-items {
-  width: 65%;;
+  width: 65%;
 }
 
 .sidebar-toggle {
@@ -133,7 +139,6 @@ span {
 
 ///////
 
-
 // .dashboardHeader {
 //   background-color: #060b26; //my color: #060b26
 //   padding: 5px;
@@ -141,7 +146,7 @@ span {
 //   display: flex;
 //   justify-content: center;
 //   align-items: center;
-  
+
 // }
 
 // .sidebarContainer {
@@ -169,7 +174,7 @@ span {
 //   height: 100vh;
 //   display: flex;
 //   justify-content: center;
-//   position: fixed;  
+//   position: fixed;
 //   top: 65px;
 //   left: -100%;
 //   transition: 850ms;

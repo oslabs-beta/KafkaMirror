@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.metricContainer {
+  background: $secondaryBackground;
+  border-radius: 20px;
+  border: 1px solid $primaryForeground;
+}
+
+.metric {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 72px;
+  color: $primaryForeground;
+}
+
+.metricText {
+  text-align: center;
+  color: $primaryForeground;
+}

@@ -20,10 +20,13 @@ class Throughput extends Component {
       }, 0);
     });
 
+    let xAxisLabel = 0;
+
     const ctx = document.getElementById('myChart').getContext('2d');
     const liveChart = new Chart(ctx, {
       // The type of chart we want to create
-      type: 'bar',
+      // type: 'bar',
+      type: 'line',
 
       // The data for our dataset
       data: {
@@ -34,8 +37,8 @@ class Throughput extends Component {
           {
             lineTension: 0,
             label: 'live chart',
-            backgroundColor: 'rgba(115, 115, 217, 1)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: '#09dfdf1c',
+            borderColor: '#09dfdf',
             data: Array(100)
               .fill(0)
               .map((x) => 0),
@@ -52,6 +55,13 @@ class Throughput extends Component {
             to: 0,
             loop: true,
           },
+          
+        },
+        title: {
+          display: true,
+          text: 'Throughput (KB/second)',
+          fontColor: 'white',
+          fontSize: '18'
         },
         legend: {
           display: false,
@@ -62,9 +72,18 @@ class Throughput extends Component {
               display: true,
               ticks: {
                 min: 0,
+                callback: function(value, index, values) {
+                  return value + ' KB';
+                },
+                fontColor: 'white',
               },
             },
           ],
+          xAxes: [{
+            ticks: {
+              fontColor: 'white',
+            }
+          }]
         },
       },
     });
@@ -101,6 +120,8 @@ class Throughput extends Component {
     }
 
     function randomizeCallout() {
+      // let xAxisLabel2 = xAxisLabel;
+      // xAxisLabel++;
       // setTimeout(()=>{
       //   randomizeCallout()
       // },interval)
@@ -111,11 +132,12 @@ class Throughput extends Component {
       time += d.getHours() + ' : ';
       time += d.getMinutes() + ' : ';
       time += d.getSeconds(); // + ' : ';
-      //time += d.getMilliseconds()
-      let val = bytes;
+      // time += d.getMilliseconds()
+      let val = bytes / 1000;
       console.log('bytes: ', val);
       bytes = 0;
       return chartAnimate(liveChart, time, val);
+      // return chartAnimate(liveChart, xAxisLabel2, val);
     }
     // randomizeCallout();
     setInterval(() => {
