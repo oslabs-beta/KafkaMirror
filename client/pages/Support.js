@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Support() {
+function Settings() {
   return (
-    <div className='support'>
-      <h1>Support</h1>
+    <div className='settings'>
+      <h1>Settings</h1>
     </div>
   )
 }
 
-export default Support;
+export default Settings;

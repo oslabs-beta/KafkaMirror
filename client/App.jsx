@@ -31,12 +31,12 @@ export default class App extends Component {
           {/* <Dashboard /> */}
           <div className="mainContainer">
             <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/dashboard" component={Dashboard} />
+              {/* <Route exact path="/" component={Home} /> */}
+              <Route exact path="/" component={Dashboard} />
               <Route path="/mirror" component={Mirror} />
-              <Route path="/logs" component={Logs} />
-              <Route path="/streams" component={Streams} />
-              <Route path="/team" component={Team} />
+              {/* <Route path="/logs" component={Logs} /> */}
+              {/* <Route path="/streams" component={Streams} /> */}
+              {/* <Route path="/team" component={Team} /> */}
               <Route path="/support" component={Support} />
             </Switch>
           </div>

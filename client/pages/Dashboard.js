@@ -2,13 +2,13 @@ import React from "react";
 import ThroughputChart from "../components/charts/ThroughputChart.jsx";
 import EventChart from "../components/charts/EventChart.jsx";
 import Header from "../components/Header";
-import Metric from "../components/Metric";
+import Metric from "../components/Sidebar/Metric";
 import "./Pages.scss";
 
 const Dashboard = () => {
   return (
-    <div className="grid-container dashboardContainer">
-      <Header className="dashboardHeader" />
+    <div className="dashboard-container">
+      {/* <Header className="dashboardHeader" /> */}
       <Metric className="metric1" />
       <Metric className="metric2" />
       <Metric className="metric3" />
