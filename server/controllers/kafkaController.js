@@ -1,19 +1,24 @@
-// take feedback from front end about server location
-// pass to kafka instance
+// const createInstance = require("../kafkaInstance");
+// let kafka;
 
-const kafkaController = {
-  let server;
-};
+// let livePort;
+let livePort;
+
+const kafkaController = {};
 
 kafkaController.setServerLocation = (req, res, next) => {
-
-}
-// pull server information from client post request
-// assign to server
+  // kafka = createInstance(9092);
+  // console.log("kafka instance:", kafka);
+  livePort = parseInt(req.params.newPort);
+  res.locals.livePort = livePort;
+  // console.log(res.locals.instance);
+  // console.log(typeof kafka);
+  next();
+};
 
 kafkaController.getServerLocation = (req, res, next) => {
-    
-}
-// send server in response body
+  res.locals.livePort = livePort;
+  next();
+};
 
 module.exports = kafkaController;

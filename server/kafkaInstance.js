@@ -1,4 +1,4 @@
-const { Kafka } = require('kafkajs');
+const { Kafka } = require("kafkajs");
 
 // expects an array of broker addresses
 // const kafka = (brokers) => {
@@ -17,11 +17,11 @@ const { Kafka } = require('kafkajs');
 //   });
 // };
 
-const createInstance = (brokers = [9092]) => {
+const createInstance = (brokers = 9092) => {
   if (!Array.isArray(brokers)) brokers = [brokers];
   // convert brokers into correct format
   brokers = brokers.map((broker) => {
-    if (typeof broker === 'number') return `localhost:${broker}`;
+    if (typeof broker === "number") return `localhost:${broker}`;
     return broker;
     // if (broker.includes('http')) return broker;
     // if (broker.includes('localhost')) return broker;
@@ -29,7 +29,7 @@ const createInstance = (brokers = [9092]) => {
 
   return new Kafka({
     // confirm clientId
-    clientId: 'kafkamirror',
+    clientId: "kafkamirror",
     brokers,
     // brokers: ["localhost:9092", localhost:9093],
   });
@@ -41,6 +41,6 @@ const createInstance = (brokers = [9092]) => {
 //   // brokers,
 //   brokers: ['localhost:9092'],
 // });
-const kafka = createInstance(9092);
+// const kafka = createInstance(9092);
 
-module.exports = kafka;
+module.exports = createInstance;
