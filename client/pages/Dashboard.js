@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       {/* <Header className="dashboardHeader" /> */}
-      <Metric className="metric1" metric={4} metricText={'# of brokers'} />
+      <Metric className="metric1" metric={3} metricText={'# of brokers'} />
       <Metric className="metric2" metric={2} metricText={'# of topics'} />
       <Metric className="metric3" metric={5} metricText={'# of consumers'} />
       <ThroughputChart className="graph1" />

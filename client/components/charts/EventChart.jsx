@@ -57,7 +57,7 @@ class EventChart extends Component {
         },
         title: {
           display: true,
-          text: 'Events/second',
+          text: 'Events (logs/second)',
           fontColor: 'white',
           fontSize: '18'
         },
