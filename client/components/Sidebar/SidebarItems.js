@@ -28,6 +28,15 @@ export const SidebarItems = [
   }
 ]
 
+// ,
+//   {
+//     title: 'About',
+//     path: '/about',
+//     icon: <GiIcons.GiBlackBook />,
+//     cName: 'sidebar-text',
+//     cName2: 'sidebar-icon'
+//   }
+
 // export const SidebarItems2 = [
 //   {
 //     title: 'Home',
