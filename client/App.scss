@@ -5,7 +5,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Lato, sans-serif; //Lato
+  font-family: Lato, Arial, sans-serif; //Lato
 }
 
 .appContainer {
@@ -26,69 +26,3 @@ h6,
 p {
   color: #f5f5f5;
 }
-
-// body {
-//   background-color: rgb(47, 14, 90); //#fff, tbd
-//   color: rgba(60,207,207,1); //#fff, tbd
-// }
-
-// //Placeholder. Put componenets scss here. tbd
-// .home, .mirror, .logs, .streams, .team, .support {
-//   display: flex;
-//   height: 90vh;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: 3rem;
-// }
-
-// div.appContainer {
-//   display: grid;
-//   grid-template-columns: 60px 1fr;
-//   grid-template-rows: 1fr;
-//   grid-template-areas: 'sidebar mainContainer';
-//   height: 100vh;
-// }
-
-// .sidebar {
-//   grid-area: sidebar;
-//   background-color:#060b26; // #060b26
-// }
-
-// .mainContainer {
-//   grid-area: mainContainer;
-// }
-
-// .dashboard {
-//   display: flex;
-//   height: 30vh;
-//   align-items: center;
-//   justify-content: flex-start;
-//   font-size: 6rem;
-// }
-
-// .chart {
-//   display: flex;
-//   margin: 50px 10px 10px 260px;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: 6rem;
-// }
-
-// .grid-container {
-//   margin: 30px 30px 30px 280px;
-//   display: grid;
-//   grid-template-columns: repeat(3, 3fr);
-//   grid-auto-rows: minmax(250px, auto);
-//   grid-gap: 20px;
-//   justify-content: right;
-// }
-
-// .moch-chart {
-//   grid-column-start: 1;
-//   grid-column-end: 2;
-// }
-
-// .moch-chart2 {
-//   grid-column-start: 2;
-//   grid-column-end: 4;
-// }

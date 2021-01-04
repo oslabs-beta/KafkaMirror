@@ -1,8 +1,7 @@
 import React from 'react';
-
 import './Metric.scss';
 
-const Metric = (props) => {
+const Metric = (props) => {``
   return (
     <div className={props.className + ' metricContainer'}>
       <h1 className="metric">{props.metric}</h1>
