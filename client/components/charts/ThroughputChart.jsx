@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { io } from 'socket.io-client';
 import interval from './chartConfig';
+import './Charts.scss';
 // const io = require('socket.io-client');
 // const ioClient = io.connect('http://localhost:3030');
 // ioClient.on('log', (msg) => console.log(msg));
@@ -9,18 +10,17 @@ class Throughput extends Component {
   constructor(props) {
     super(props);
   }
+
   componentDidMount() {
     let bytes = 0;
     const socket = io('http://localhost:3030');
     socket.on('log', (data) => {
       // bytes += JSON.parse(data).requestSize;
       data = JSON.parse(data);
-      bytes += data.reduce((acc, curr) => {
-        return acc + curr.requestSize;
-      }, 0);
+      bytes += data.reduce((acc, curr) => acc + curr.requestSize, 0);
     });
 
-    let xAxisLabel = 0;
+    const xAxisLabel = 0;
 
     const ctx = document.getElementById('myChart').getContext('2d');
     const liveChart = new Chart(ctx, {
@@ -55,13 +55,12 @@ class Throughput extends Component {
             to: 0,
             loop: true,
           },
-          
         },
         title: {
           display: true,
           text: 'Throughput (KB/second)',
-          fontColor: 'white',
-          fontSize: '18'
+          fontColor: '#09dfdf',
+          fontSize: '18',
         },
         legend: {
           display: false,
@@ -72,18 +71,20 @@ class Throughput extends Component {
               display: true,
               ticks: {
                 min: 0,
-                callback: function(value, index, values) {
-                  return value + ' KB';
+                callback(value, index, values) {
+                  return `${value} KB`;
                 },
-                fontColor: 'white',
+                fontColor: '#09dfdf',
               },
             },
           ],
-          xAxes: [{
-            ticks: {
-              fontColor: 'white',
-            }
-          }]
+          xAxes: [
+            {
+              ticks: {
+                fontColor: '#09dfdf',
+              },
+            },
+          ],
         },
       },
     });
@@ -94,29 +95,26 @@ class Throughput extends Component {
         dataset.data.push(data);
       });
       chart.update();
-      return;
     }
-    //============================================
+    //= ===========================================
 
-    //============================================
+    //= ===========================================
 
-    //============================================
+    //= ===========================================
     function removeData(chart) {
       chart.data.labels.shift();
       chart.data.datasets.forEach((dataset) => {
         dataset.data.shift();
       });
       chart.update();
-      return;
     }
 
     function chartAnimate(chart, label, data) {
-      let copy = data;
+      const copy = data;
       addData(chart, label, data);
-      //======================
+      //= =====================
       removeData(chart);
       //----------------------
-      return;
     }
 
     function randomizeCallout() {
@@ -128,13 +126,13 @@ class Throughput extends Component {
       // console.log('\n\nbytes: ',bytes)
       // console.log('bytes after cleaned: ',bytes)
       let time = '';
-      let d = new Date();
-      time += d.getHours() + ' : ';
-      time += d.getMinutes() + ' : ';
+      const d = new Date();
+      time += `${d.getHours()} : `;
+      time += `${d.getMinutes()} : `;
       time += d.getSeconds(); // + ' : ';
       // time += d.getMilliseconds()
-      let val = bytes / 1000;
-      console.log('bytes: ', val);
+      const val = bytes / 1000;
+      // console.log('bytes: ', val);
       bytes = 0;
       return chartAnimate(liveChart, time, val);
       // return chartAnimate(liveChart, xAxisLabel2, val);
@@ -144,11 +142,12 @@ class Throughput extends Component {
       randomizeCallout();
     }, interval);
   }
+
   render() {
     return (
       <div className={this.props.className}>
-        <div className="moch-chart">
-          <canvas id="myChart"></canvas>
+        <div className="chart">
+          <canvas id="myChart" />
         </div>
       </div>
     );

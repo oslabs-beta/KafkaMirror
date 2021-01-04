@@ -20,8 +20,8 @@ export const SidebarItems = [
     cName2: 'sidebar-icon'
   },
   {
-    title: 'Support',
-    path: '/support',
+    title: 'Settings',
+    path: '/settings',
     icon: <FiIcons.FiSettings />,
     cName: 'sidebar-text',
     cName2: 'sidebar-icon'

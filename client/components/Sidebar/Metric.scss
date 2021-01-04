@@ -1,19 +1,26 @@
 @import '../../styles/variables.scss';
 
-.metricContainer {
-  background: $secondaryBackground;
-  border-radius: 20px;
-  border: 1px solid $primaryForeground;
-}
+// .metricContainer {
+//   display: flex;
+//   flex-direction: column;
+//   background: $secondaryBackground;
+//   border-radius: 20px;
+//   border: 1px solid $primaryForeground;
+//   // height: 200px;
+//   // width: 300px;
+//   // align-content: space-around;
+// }
 
 .metric {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 40px;
   font-size: 72px;
   color: $primaryForeground;
 }
 
 .metricText {
   text-align: center;
+  padding-top: 39px;
+  font-size: 30px;
   color: $primaryForeground;
 }

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { io } from 'socket.io-client';
 import interval from './chartConfig';
+import './Charts.scss';
 // const io = require('socket.io-client');
 
 class EventChart extends Component {
   constructor(props) {
     super(props);
   }
+
   componentDidMount() {
     let events = 0;
     const socket = io('http://localhost:3030');
@@ -58,8 +60,8 @@ class EventChart extends Component {
         title: {
           display: true,
           text: 'Events/second',
-          fontColor: 'white',
-          fontSize: '18'
+          fontColor: '#09dfdf',
+          fontSize: '18',
         },
         scales: {
           yAxes: [
@@ -70,17 +72,17 @@ class EventChart extends Component {
                 // callback: function(value, index, values) {
                 //   return value + ' events';
                 // }
-                fontColor: 'white'
+                fontColor: '#09dfdf',
               },
             },
           ],
           xAxes: [
             {
               ticks: {
-                fontColor: 'white'
-              }
-            }
-          ]
+                fontColor: '#09dfdf',
+              },
+            },
+          ],
         },
       },
     });
@@ -91,28 +93,25 @@ class EventChart extends Component {
         dataset.data.push(data);
       });
       chart.update();
-      return;
     }
-    //============================================
+    //= ===========================================
 
-    //============================================
+    //= ===========================================
 
-    //============================================
+    //= ===========================================
     function removeData(chart) {
       chart.data.labels.shift();
       chart.data.datasets.forEach((dataset) => {
         dataset.data.shift();
       });
       chart.update();
-      return;
     }
 
     function chartAnimate(chart, label, data) {
       addData(chart, label, data);
-      //======================
+      //= =====================
       removeData(chart);
       //----------------------
-      return;
     }
 
     function randomizeCallout() {
@@ -120,14 +119,14 @@ class EventChart extends Component {
       //   randomizeCallout()
       // },interval)
       let time = '';
-      let d = new Date();
-      time += d.getHours() + ' : ';
-      time += d.getMinutes() + ' : ';
+      const d = new Date();
+      time += `${d.getHours()} : `;
+      time += `${d.getMinutes()} : `;
       time += d.getSeconds();
       +' : ';
       time += d.getMilliseconds();
-      let val = events;
-      console.log('events: ', val);
+      const val = events;
+      // console.log('events: ', val);
       events = 0;
       return chartAnimate(liveChart, time, val);
     }
@@ -136,11 +135,12 @@ class EventChart extends Component {
       randomizeCallout();
     }, interval);
   }
+
   render() {
     return (
       <div className={this.props.className}>
-        <div className="moch-chart2">
-          <canvas id="myChart2"></canvas>
+        <div className="chart">
+          <canvas id="myChart2" />
         </div>
       </div>
     );

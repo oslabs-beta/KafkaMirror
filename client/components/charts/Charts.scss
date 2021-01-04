@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+.chart {
+  display: flex;
+  padding: 10px;
+  flex: 0 1 auto;
+  align-items: stretch;
+  background: $secondaryBackground;
+  border-radius: 20px;
+  border: 1px solid $primaryForeground;
+}
+
+canvas {
+  display: grid;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
