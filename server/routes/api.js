@@ -26,7 +26,7 @@ router.get(
   }
 );
 
-//localhost:8080/api/groupList
+//localhost:8080/api/groupList --> information regarding consumers
 router.get(
   "/groupList",
   kafkaController.getServerLocation,
@@ -36,7 +36,7 @@ router.get(
   }
 );
 
-//localhost:8080/api/describeGroups
+//localhost:8080/api/describeGroups --> information regarding consumers
 router.get(
   "/describeGroups",
   kafkaController.getServerLocation,
@@ -47,7 +47,7 @@ router.get(
   }
 );
 
-//localhost:8080/api/describeCluster
+//localhost:8080/api/describeCluster --> information regarding the entire kafka instance, including brokers
 router.get(
   "/describeCluster",
   kafkaController.getServerLocation,
@@ -58,12 +58,8 @@ router.get(
 );
 
 //localhost:8080/api/setPort
-router.post(
-  "/setPort",
-  kafkaController.setServerLocation,
-  (req, res) => {
-    res.status(200).json(res.locals.livePort);
-  }
-);
+router.post("/setPort", kafkaController.setServerLocation, (req, res) => {
+  res.status(200).json(res.locals.livePort);
+});
 
 module.exports = router;
