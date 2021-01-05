@@ -8,6 +8,9 @@ const app = express();
 const ioClient = io.connect("http://localhost:3030");
 // ioClient.on("log", (msg) => console.log(JSON.parse(msg).requestSize));
 // ioClient.on('log', (log) => console.log(log));
+app.use(express.json());
+
+
 
 const apiRouter = require("./routes/api");
 

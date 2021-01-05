@@ -9,7 +9,9 @@ const kafkaController = {};
 kafkaController.setServerLocation = (req, res, next) => {
   // kafka = createInstance(9092);
   // console.log("kafka instance:", kafka);
-  livePort = parseInt(req.params.newPort);
+  console.log(req.body);
+  
+  livePort = parseInt(req.body.portNumber);
   res.locals.livePort = livePort;
   // console.log(res.locals.instance);
   // console.log(typeof kafka);
