@@ -59,7 +59,7 @@ router.get(
 
 //localhost:8080/api/setPort
 router.post(
-  "/setPort/:newPort",
+  "/setPort",
   kafkaController.setServerLocation,
   (req, res) => {
     res.status(200).json(res.locals.livePort);
