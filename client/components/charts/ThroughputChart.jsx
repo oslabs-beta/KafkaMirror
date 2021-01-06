@@ -43,6 +43,11 @@ class Throughput extends Component {
       },
       // Configuration options go here
       options: {
+        elements: {
+          point: {
+            radius: 0,
+          },
+        },
         animation: {
           tension: {
             duration: 100,
