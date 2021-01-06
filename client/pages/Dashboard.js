@@ -37,7 +37,6 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      {/* <Header className="dashboardHeader" /> */}
         <Metric className="metric1 metrics-container" metric={loading ? <span>...Loading</span> : brokerAmount} metricText={brokerAmount === 1 ? 'Broker' : 'Brokers'} />
         <Metric className="metric2 metrics-container" metric={loading ? <span>...Loading</span> : topicAmount} metricText={topicAmount === 1 ? 'Topic' :'Topics'} />
         <Metric className="metric3 metrics-container" metric={loading ? <span>...Loading</span> : consumerAmount} metricText={consumerAmount === 1 ? 'Consumer' : 'Consumers'} />

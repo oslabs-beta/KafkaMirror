@@ -11,7 +11,6 @@ const Settings = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    //post to server port
     fetch(`/api/setPort`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

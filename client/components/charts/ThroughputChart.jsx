@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { io } from 'socket.io-client';
 import interval from './chartConfig';
 import './Charts.scss';
-// const io = require('socket.io-client');
-// const ioClient = io.connect('http://localhost:3030');
-// ioClient.on('log', (msg) => console.log(msg));
 
 class Throughput extends Component {
   constructor(props) {
@@ -15,7 +12,6 @@ class Throughput extends Component {
     let bytes = 0;
     const socket = io('http://localhost:3030');
     socket.on('log', (data) => {
-      // bytes += JSON.parse(data).requestSize;
       data = JSON.parse(data);
       bytes += data.reduce((acc, curr) => acc + curr.requestSize, 0);
     });
@@ -61,6 +57,7 @@ class Throughput extends Component {
           text: 'Throughput (KB/second)',
           fontColor: '#09dfdf',
           fontSize: '18',
+          fontFamily: 'Lato',
         },
         legend: {
           display: false,
@@ -96,11 +93,7 @@ class Throughput extends Component {
       });
       chart.update();
     }
-    //= ===========================================
-
-    //= ===========================================
-
-    //= ===========================================
+    // adding one point of data
     function removeData(chart) {
       chart.data.labels.shift();
       chart.data.datasets.forEach((dataset) => {
@@ -108,41 +101,30 @@ class Throughput extends Component {
       });
       chart.update();
     }
-
+    // removing one point of data
     function chartAnimate(chart, label, data) {
       const copy = data;
       addData(chart, label, data);
-      //= =====================
       removeData(chart);
-      //----------------------
     }
-
+    // recursion function that calls the packaged "chartAnimate" every "interval"
+    // the "interval" is meant to be able to be manipulated easily and has a global scope.
     function randomizeCallout() {
-      // let xAxisLabel2 = xAxisLabel;
-      // xAxisLabel++;
-      // setTimeout(()=>{
-      //   randomizeCallout()
-      // },interval)
-      // console.log('\n\nbytes: ',bytes)
-      // console.log('bytes after cleaned: ',bytes)
       let time = '';
       const d = new Date();
       time += `${d.getHours()} : `;
       time += `${d.getMinutes()} : `;
       time += d.getSeconds(); // + ' : ';
-      // time += d.getMilliseconds()
       const val = bytes / 1000;
-      // console.log('bytes: ', val);
       bytes = 0;
       return chartAnimate(liveChart, time, val);
-      // return chartAnimate(liveChart, xAxisLabel2, val);
     }
-    // randomizeCallout();
     setInterval(() => {
       randomizeCallout();
     }, interval);
   }
 
+  // rendering the chaat in div
   render() {
     return (
       <div className={this.props.className}>

@@ -3,6 +3,7 @@ import * as SiIcons from 'react-icons/si';
 import { NavLink } from 'react-router-dom';
 import { SidebarItems } from './SidebarItems';
 import './Sidebar.scss';
+import logo from '../../assets/logo-icon.png';
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
@@ -19,7 +20,7 @@ const Sidebar = () => {
     <>
       <div className="sidebarContainer">
         <NavLink to="#" className="app-logo">
-          <SiIcons.SiApachekafka onClick={sidebarToggle} />
+          <img src={logo} alt='KafkaMirror-logo' onClick={sidebarToggle} />
         </NavLink>
       </div>
       <div className="sidebar-icon-container">
@@ -37,6 +38,7 @@ const Sidebar = () => {
       </div>
       <nav className={sidebar ? 'sidebar-menu active' : 'sidebar-menu '}>
         <ul className="sidebar-menu-items" onClick={sidebarToggle}>
+          {/* @description:  maps through the object in the sidebaritems file and displays the appropriate menu items and icons*/}
           {SidebarItems.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
