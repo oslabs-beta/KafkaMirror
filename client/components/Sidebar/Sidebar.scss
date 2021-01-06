@@ -14,7 +14,7 @@
 .app-logo {
   margin-left: 1.29rem;
   padding-top: 10px;
-  color: #f5f5f5;
+  color: $secondaryForeground;
   font-size: 2.6rem;
   background: none;
   z-index: 6;
@@ -22,7 +22,15 @@
 
 img {
   height: 50px;
-  color: #f5f5f5;
+  color: $secondaryForeground;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+img:hover {
+  height: 55px;
+  color: $secondaryForeground;
 }
 
 .icon {
@@ -43,7 +51,7 @@ img {
   padding-right: 8px;
   padding-bottom: 100px;
   justify-content: center;
-  // align-items: center;
+
   position: fixed;
   top: 0px;
   z-index: 5;
@@ -52,11 +60,11 @@ img {
 
 .sidebar-menu-icons {
   list-style: none;
-  color: #f5f5f5;
+  color: $secondaryForeground;
 }
 
 .sidebar-menu {
-  background-color: #060b26;
+  background-color: $secondaryBackground;
   width: 280px;
   height: 100vh;
   display: flex;
@@ -110,7 +118,7 @@ img {
 }
 
 .sidebar-text a:hover {
-  color: white;
+  color: $secondaryForeground;
 }
 
 .sidebar-menu-items {
@@ -118,7 +126,7 @@ img {
 }
 
 .sidebar-toggle {
-  background-color: #060b26;
+  background-color: $primaryBackground;
   width: 100%;
   height: 80px;
   display: flex;
