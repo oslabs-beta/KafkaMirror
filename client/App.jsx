@@ -25,10 +25,9 @@ export default class App extends Component {
       <div className="appContainer">
         <Router>
           <Sidebar className="sidebar" />
-          {/* <IconSidebar /> */}
-          {/* <Dashboard /> */}
           <div className="mainContainer">
             <Switch>
+              {/* @description planned routes that the originals didn't get to, iterating developers enjoy */}
               {/* <Route exact path="/" component={Home} /> */}
               <Route exact path="/" component={Dashboard} />
               <Route path="/mirror" component={Mirror} />

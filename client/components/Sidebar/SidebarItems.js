@@ -28,37 +28,14 @@ export const SidebarItems = [
   }
 ]
 
-// ,
-//   {
-//     title: 'About',
-//     path: '/about',
-//     icon: <GiIcons.GiBlackBook />,
-//     cName: 'sidebar-text',
-//     cName2: 'sidebar-icon'
-//   }
+// @description A collection of more pages for future iterating developers forward to just add in as needed
 
-// export const SidebarItems2 = [
 //   {
 //     title: 'Home',
 //     path: '/',
 //     icon: <SiIcons.SiHomeassistant />,
 //     cName: 'sidebar-text',
-//     cName2: 'sidebar-icon'
-    
-//   },
-//   {
-//     title: 'Dashboard',
-//     path: '/',
-//     icon: <RiIcons.RiDashboardLine />,
-//     cName: 'sidebar-text',
-//     cName2: 'sidebar-icon'
-//   },
-//   {
-//     title: 'Mirror',
-//     path: '/mirror',
-//     icon: <GiIcons.GiMirrorMirror />,
-//     cName: 'sidebar-text',
-//     cName2: 'sidebar-icon'
+//     cName2: 'sidebar-icon'  
 //   },
 //   {
 //     title: 'Logs',
@@ -79,12 +56,11 @@ export const SidebarItems = [
 //     path: '/team',
 //     icon: <RiIcons.RiTeamLine />,
 //     cName: 'sidebar-text'
-//   },
+//   } ,
 //   {
-//     title: 'Support',
-//     path: '/support',
-//     icon: <RiIcons.RiQuestionnaireLine />,
+//     title: 'About',
+//     path: '/about',
+//     icon: <GiIcons.GiBlackBook />,
 //     cName: 'sidebar-text',
 //     cName2: 'sidebar-icon'
 //   }
-// ]
