@@ -31,6 +31,11 @@ class GridItem3 extends Component {
         ],
       },
       options: {
+        elements: {
+          point: {
+            radius: 0,
+          },
+        },
         animation: {
           tension: {
             duration: 100,
