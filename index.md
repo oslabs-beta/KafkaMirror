@@ -17,8 +17,8 @@
 KafkaMirror allows for easy, highly accurate monitoring of your kafka cluster in real-time. By directly accessing the log data for your kafka cluster, KafkaMirror delivers precise, reliable feedback which can be used to improve system health and identify irregularities. 
 
 ## Demo
-![kafka-mirror-events](./events.gif.png "KafkaMirror Event Metrics")
-![kafka-mirror-throughput](./throughput.gif.png "KafkaMirror Throughput Metrics")<br>
+![kafka-mirror-events](./events.gif "KafkaMirror Event Metrics")
+![kafka-mirror-throughput](./throughput.gif "KafkaMirror Throughput Metrics")<br>
 
 ## Quick Start
 A few simple steps to initialize KafkaMirror:
