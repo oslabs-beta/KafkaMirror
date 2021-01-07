@@ -1,7 +1,7 @@
 const express = require("express");
-const io = require("socket.io-client");
 
 const app = express();
+
 const apiRouter = require("./routes/api");
 
 // REFACTOR TO ROUTE WEBSOCKET TO CLIENT FROM SERVER
