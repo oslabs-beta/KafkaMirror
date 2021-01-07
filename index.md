@@ -1,37 +1,51 @@
-## Welcome to GitHub Pages
+# KafkaMirror
 
-You can use the [editor on GitHub](https://github.com/oslabs-beta/KafkaMirror/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Table of Contents
+#### Overview
+#### Demo
+#### Quick Start
+#### Viewing your metrics
+#### Open-Source Kafka simulator tool
 
-### Markdown
+## Overview
+- Monitor your Kafka application in real-time
+- Track throughput, events per second
+- Easily integrate KafkaMirror to your existing application
+- Compatible with Kafka applications utilizing KafkaJS
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+KafkaMirror allows for easy, highly accurate monitoring of your kafka cluster in real-time. By directly accessing the log data for your kafka cluster, KafkaMirror delivers precise, reliable feedback which can be used to improve system health and identify irregularities. 
 
-```markdown
-Syntax highlighted code block
+## Demo
+GRAPHIC
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+## Quick Start
+A few simple steps to initialize KafkaMirror:
+1. ```npm install kafka-mirror-connect```
+2. In the file where you initialize your KafkaJS to connect with your Kafka Cluster, require in kafka-mirror connect.
+3. Replace new Kafka with a call to KafkaMirror. Example below:<br>
+ SCREENSHOT
+ <br>
+ 
+## Viewing your metrics
+The KafkaMirror GUI can be used to view your metrics. 
+1. Clone this repo (https://github.com/oslabs-beta/KafkaMirror.git)
+2. cd into KafkaMirror
+3. Start the application with npm run build
+4. Navigate to localhost:3000
+5. Within the GUI, navigate to the setting page and enter the location (e.g. port 9092) of your Kafka cluster.
 
-1. Numbered
-2. List
+## Open source Kafka simulator
+- https://github.com/oslabs-beta/kafka-simulator 
+  - preconfigured to work with KafkaMirror
 
-**Bold** and _Italic_ and `Code` text
+The KafkaMirror GUI can be used to view your metrics. 
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/oslabs-beta/KafkaMirror/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Authors
+KafkaMirror Engineers:<br>
+[Mark Miller](https://github.com/markmanuelmiller)<br>
+[Joe Kinney](https://github.com/joekinney-png)<br>
+[Toby Rhodes](https://github.com/rtobiwan)<br>
+[Keon Kim](https://github.com/Keon-Kim-0)<br>
+[Jonah Stewart](https://github.com/jonahlstewart)<br>
