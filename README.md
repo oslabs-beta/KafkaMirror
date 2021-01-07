@@ -2,133 +2,65 @@
 
 Kafka monitoring tool
 
-## Routes
+## Table of Contents
 
-For additional detail on data returned from KafkaJS Admin API, refer to: [KafkaJS Admin](https://kafka.js.org/docs/admin)
+#### Overview
 
-### GET
+#### Demo
 
-- `/api/schema` **not implemented**
-  - Fetches current schema from db
-- `/api/topicList`
-  - Fetches list of topics from admin api
-  - Data returned as an array of strings
-- `/api/allTopicMetadata`
-  - Fetches metadata on all topics from admin api
-  - Data returned as an object with property topics
-  - TopicsMetaData Structure:
+#### Quick Start
 
-```js
-      {
-        topics: Array<TopicMetadata>,
-      }
-```
+#### Viewing your metrics
 
-- TopicMetaData Structure:
+#### Open-Source Kafka simulator tool
 
-```js
-      {
-        topic: String,
-        partitions: Array<PartitionMetadata>,
-      }
-```
+## Overview
 
-- PartitionMetaData Structure:
+- Monitor your Kafka application in real-time
+- Track throughput, events per second
+- Easily integrate KafkaMirror to your existing application
+- Compatible with Kafka applications utilizing KafkaJS
 
-```js
-      {
-        partitionErrorCode: Number,
-        partitionId: Number,
-        leader: Number,
-        replicas: Array<Number>,
-        isr: Array<Number>,
-      }
-```
+KafkaMirror allows for easy, highly accurate monitoring of your kafka cluster in real-time. By directly accessing the log data for your kafka cluster, KafkaMirror delivers precise, reliable feedback which can be used to improve system health and identify irregularities.
 
-- `/api/groupList`
-  - Fetches list of consumer groups from admin api
-  - Data returned as an object with a property groups
+## Demo
 
-```js
-      {
-        groups: [
-          {
-            groupId: String,
-            protocolType: String,
-          },
-        ],
-      }
-```
+![kafka-mirror-events](./assets/events.gif 'KafkaMirror Event Metrics')
+![kafka-mirror-throughput](./assets/throughput.gif 'KafkaMirror Throughput Metrics')<br>
 
-- `/api/describeGroups`
-  - Fetches metadata on all topics from admin api
-  - Data returned as an object with a property groups
+## Quick Start
 
-```js
-      {
-        groups: Array<GroupData>,
-      }
-```
+A few simple steps to initialize KafkaMirror:
 
-- GroupData Structure
+1. `npm install kafka-mirror-connect`
+2. In the file where you initialize your KafkaJS to connect with your Kafka Cluster, require in kafka-mirror connect.
+   ![kafka-mirror-connect require statement](./assets/kafkaConnection_js_—_KafkaMirror.png 'kafka-mirror-connect require statement')<br>
+3. Replace new Kafka with a call to KafkaMirror. <br>
+   ![kafka-mirror invocation](./assets/kafkaConnection_js_—_KafkaMirror2.png 'kafka mirror invocation') <br>
+   <br>
 
-```js
-[
-  {
-    errorCode: Number,
-    groupId: String,
-    members: [
-      {
-        clientHost: String,
-        clientId: String,
-        memberAssignment: Buffer,
-        memberId: String,
-        memberMetadata: Buffer,
-      },
-    ],
-    protocol: String,
-    protocolType: String,
-    state: String,
-  },
-];
-```
+## Viewing your metrics
 
-- `/api/describeCluster`
-  - Fetches data on Kafka broker cluster
-  - Data returned as an object with a property brokers, controller and ID
+The KafkaMirror GUI can be used to view your metrics.
 
-```js
-     {
-      brokers:
-      [
-        {
-          nodeId: Number,
-          host: String,
-          port: Number
-        }
-      ],
-      controller: Number,
-      clusterId: String,
-      }
-```
+1. Clone this repo (https://github.com/oslabs-beta/KafkaMirror.git)
+2. cd into KafkaMirror
+3. Start the application with npm run build
+4. Navigate to localhost:3000
+5. Within the GUI, navigate to the setting page and enter the location (e.g. port 9092) of your Kafka cluster.
 
-### POST
+## Open source Kafka simulator
 
-- `/api/schema` **not implemented**
-  - posts current schema to db
+- https://github.com/oslabs-beta/kafka-simulator
+  - preconfigured to work with KafkaMirror
 
-## Data Formats
+The KafkaMirror GUI can be used to view your metrics.
 
-### Graph 1
+## Authors
 
-```js
-const data = {
-  brokers: [],
-  clientId: String,
-};
-```
-
-in kafka mirror access the kafka instance
-using admin
-get list of producers
-send to client
+KafkaMirror Engineers:<br>
+[Joe Kinney](https://github.com/joekinney-png)<br>
+[Jonah Stewart](https://github.com/jonahlstewart)<br>
+[Keon Kim](https://github.com/Keon-Kim-0)<br>
+[Mark Miller](https://github.com/markmanuelmiller)<br>
+[Toby Rhodes](https://github.com/rtobiwan)<br>
