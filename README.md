@@ -45,7 +45,7 @@ The KafkaMirror GUI can be used to view your metrics.
 
 1. Clone this repo (https://github.com/oslabs-beta/KafkaMirror.git)
 2. cd into KafkaMirror
-3. Start the application with npm run build
+3. Start the application with npm start
 4. Navigate to localhost:3000
 5. Within the GUI, navigate to the setting page and enter the location (e.g. port 9092) of your Kafka cluster.
 
@@ -63,4 +63,4 @@ KafkaMirror Engineers:<br>
 [Jonah Stewart](https://github.com/jonahlstewart)<br>
 [Keon Kim](https://github.com/Keon-Kim-0)<br>
 [Mark Miller](https://github.com/markmanuelmiller)<br>
-[Toby Rhodes](https://github.com/rtobiwan)<br>
+[Tobi-wan Rodriguez](https://github.com/rtobiwan)<br>
