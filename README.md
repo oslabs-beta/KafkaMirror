@@ -33,11 +33,19 @@ KafkaMirror allows for easy, highly accurate monitoring of your kafka cluster in
 A few simple steps to initialize KafkaMirror:
 
 1. `npm install kafka-mirror-connect`
-2. In the file where you initialize your KafkaJS to connect with your Kafka Cluster, require in kafka-mirror connect.
-   ![kafka-mirror-connect require statement](./assets/kafkaConnection_js_—_KafkaMirror.png 'kafka-mirror-connect require statement')<br>
-3. Replace new Kafka with a call to KafkaMirror. <br>
-   ![kafka-mirror invocation](./assets/kafkaConnection_js_—_KafkaMirror2.png 'kafka mirror invocation') <br>
-   <br>
+2. In the file where you initialize your KafkaJS to connect with your Kafka Cluster, require in kafka-mirror connect.<br>
+```js 
+const KafkaMirror = require("kafka-mirror-connect");
+```
+
+3. Replace "new Kafka" with a call to KafkaMirror. <br>
+```js
+const kafka = KafkaMirror({
+   clientId,
+   brokers: ["localhost:9092"],
+});
+```
+<br>
 
 ## Viewing your metrics
 
@@ -45,7 +53,7 @@ The KafkaMirror GUI can be used to view your metrics.
 
 1. Clone this repo (https://github.com/oslabs-beta/KafkaMirror.git)
 2. cd into KafkaMirror
-3. Start the application with npm run build
+3. Start the application with npm start
 4. Navigate to localhost:3000
 5. Within the GUI, navigate to the setting page and enter the location (e.g. port 9092) of your Kafka cluster.
 
@@ -63,4 +71,4 @@ KafkaMirror Engineers:<br>
 [Jonah Stewart](https://github.com/jonahlstewart)<br>
 [Keon Kim](https://github.com/Keon-Kim-0)<br>
 [Mark Miller](https://github.com/markmanuelmiller)<br>
-[Toby Rhodes](https://github.com/rtobiwan)<br>
+[Tobi-wan Rodriguez](https://github.com/rtobiwan)<br>
