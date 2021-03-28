@@ -23,7 +23,7 @@
     <meta name="theme-color" content="#157878">
     <link rel="stylesheet" href="/assets/css/style.css?v=df60290684fcb76f435334570b46f48204ab3e11">
   </head>
-  <body>
+  <body style="background-color:powderblue;">
     <section class="page-header">
       <h1 class="project-name">KafkaMirror</h1>
       <h2 class="project-tagline">Kafka monitoring tool</h2>
@@ -34,7 +34,6 @@
     </section>
 
     <section class="main-content">
-      <h1 id="kafkamirror">KafkaMirror</h1>
 
 <h2 id="table-of-contents">Table of Contents</h2>
 <h4 id="overview">Overview</h4>
@@ -54,17 +53,17 @@
 <p>KafkaMirror allows for easy, highly accurate monitoring of your kafka cluster in real-time. By directly accessing the log data for your kafka cluster, KafkaMirror delivers precise, reliable feedback which can be used to improve system health and identify irregularities.</p>
 
 <h2 id="demo-1">Demo</h2>
-<p><img src="./events.gif" alt="kafka-mirror-events" title="KafkaMirror Event Metrics" />
-<img src="./throughput.gif" alt="kafka-mirror-throughput" title="KafkaMirror Throughput Metrics" /><br /></p>
+<p><img src="./events.gif" style="border-radius:10px;" alt="kafka-mirror-events" title="KafkaMirror Event Metrics" />
+<img src="./throughput.gif" style="border-radius:10px;" alt="kafka-mirror-throughput" title="KafkaMirror Throughput Metrics" /><br /></p>
 
 <h2 id="quick-start-1">Quick Start</h2>
 <p>A few simple steps to initialize KafkaMirror:</p>
 <ol>
   <li><code class="language-plaintext highlighter-rouge">npm install kafka-mirror-connect</code></li>
   <li>In the file where you initialize your KafkaJS to connect with your Kafka Cluster, require in kafka-mirror connect.
-<img src="kafkaConnection_js_—_KafkaMirror.png" alt="kafka-mirror-connect require statement" title="kafka-mirror-connect require statement" /><br /></li>
+<img style="border-radius:5px;" src="kafkaConnection_js_—_KafkaMirror.png" alt="kafka-mirror-connect require statement" title="kafka-mirror-connect require statement" /><br /></li>
   <li>Replace new Kafka with a call to KafkaMirror. <br />
-<img src="kafkaConnection_js_—_KafkaMirror2.png" alt="kafka-mirror invocation" title="kafka mirror invocation" /> <br />
+<img style="border-radius:5px;" src="kafkaConnection_js_—_KafkaMirror2.png" alt="kafka-mirror invocation" title="kafka mirror invocation" /> <br />
  <br /></li>
 </ol>
 
