@@ -4,7 +4,7 @@
   "description": "Kafka monitoring tool",
   "main": "index.js",
   "scripts": {
-    "start": "webpack",
+    "start": "webpack serve --config ./webpack.config.js --mode development & nodemon server/server.js",
     "dev": "webpack serve --config ./webpack.config.js --mode development & nodemon server/server.js",
     "server-test": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
