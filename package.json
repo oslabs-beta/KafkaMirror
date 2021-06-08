@@ -1,6 +1,6 @@
 {
   "name": "kafkamirror",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Kafka monitoring tool",
   "main": "index.js",
   "scripts": {
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rtobiwan/KafkaMirror.git"
+    "url": ""
   },
-  "author": "Tobi-Wan Rodriguez",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rtobiwan/KafkaMirror/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/rtobiwan/KafkaMirror#readme",
+  "homepage": "",
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/runtime": "^7.12.5",
@@ -55,7 +55,7 @@
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.6",
     "react-hot-loader": "^4.13.0",
-    "sass-loader": "^10.1.0",
+    "sass-loader": "^10.2.0",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack-cli": "^4.2.0",
